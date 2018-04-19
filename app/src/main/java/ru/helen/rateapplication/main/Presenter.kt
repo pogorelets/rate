@@ -3,7 +3,7 @@ package ru.helen.rateapplication.main
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import ru.helen.rateapplication.model.Responce
-
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -14,9 +14,14 @@ class Presenter(val view: Contract.ViewRate, val interactor: Contract.Interactor
     fun getRates(){
         view.showProgress()
         observer =interactor.getRepeatRate()
-        observer.subscribe({response -> view.hideProgress()
-                                        view.updateListRate(response.stock)
-                                        }, {throwable -> view.hideProgress()})
+        Observable.interval(15, TimeUnit.SECONDS)
+                .subscribe {
+                    observer.subscribe({response -> view.hideProgress()
+                        view.updateListRate(response.stock)
+                    }, {throwable -> view.hideProgress()})
+                }
+
+
     }
 
     fun getOnceRate(){

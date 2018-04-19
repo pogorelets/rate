@@ -10,24 +10,33 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:paddingLeft="6dp"
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textStyle="bold"
+            android:gravity="center_vertical"
             android:id="@+id/volume"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             app:layout_constraintLeft_toRightOf="@id/name"
             app:layout_constraintRight_toLeftOf="@id/amount"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="6dp"
             android:id="@+id/amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
