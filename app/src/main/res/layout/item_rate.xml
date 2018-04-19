@@ -33,7 +33,7 @@
         <TextView
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:paddingLeft="6dp"
+            android:layout_marginLeft="6dp"
             android:id="@+id/amount"
             android:layout_width="50dp"
             android:layout_height="40dp"

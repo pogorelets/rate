@@ -1,5 +1,6 @@
 package ru.helen.rateapplication.main
 
+import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import ru.helen.rateapplication.model.Responce
@@ -18,7 +19,8 @@ class Presenter(val view: Contract.ViewRate, val interactor: Contract.Interactor
                 .subscribe {
                     observer.subscribe({response -> view.hideProgress()
                         view.updateListRate(response.stock)
-                    }, {throwable -> view.hideProgress()})
+                    }, {throwable -> Log.e("ERROR", throwable.toString())
+                                     view.hideProgress()})
                 }
 
 
@@ -28,7 +30,8 @@ class Presenter(val view: Contract.ViewRate, val interactor: Contract.Interactor
         view.showProgress()
         interactor.getOneRate()
                 .subscribe({response -> view.hideProgress()
-                                        view.updateListRate(response.stock)}, {throwable -> view.hideProgress() })
+                                        view.updateListRate(response.stock)}, {throwable -> Log.e("ERROR",throwable.toString())
+                                                                                            view.hideProgress() })
     }
 
     fun unsubscribe(){

@@ -1,6 +1,7 @@
 package ru.helen.rateapplication.main
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,8 +38,14 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
             name.text = item.name
             volume.text = item.volume.toString()
             val stramount = item.price.amount.toString()
-          //  val res = "${stramount.substringBefore('.')}.${stramount.substringAfterLast('.').substring(0,2)}"
-            amount.text = stramount
+            val res: String
+            if  (stramount.substringAfterLast('.').length >=2){
+                res = "${stramount.substringBefore('.')}.${stramount.substringAfterLast('.').substring(0,2)}"
+            } else {
+                res = "${stramount.substringBefore('.')}.${stramount.substringAfterLast('.').substring(0,1)}${"0"}"
+
+            }
+            amount.text = res
         }
     }
 }

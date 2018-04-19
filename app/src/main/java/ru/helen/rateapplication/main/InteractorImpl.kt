@@ -6,7 +6,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.helen.rateapplication.model.Responce
 import ru.helen.rateapplication.model.StockAPI
-import java.util.concurrent.TimeUnit
 
 /**
  * Interactor.
@@ -22,7 +21,5 @@ class InteractorImpl(var api: StockAPI): Contract.Interactor {
           return api.getListRate()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-
-               // .repeat(15000)
     }
 }

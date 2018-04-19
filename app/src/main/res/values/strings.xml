@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RateApplication</string>
+    <string name="rate">Курсы валют</string>
 </resources>
