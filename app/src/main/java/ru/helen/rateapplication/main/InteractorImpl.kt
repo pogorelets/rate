@@ -13,7 +13,13 @@ import ru.helen.rateapplication.model.StockAPI
  * Interactor.
  */
 class InteractorImpl(var api: StockAPI): Contract.Interactor {
-    override fun getRate(): Observable<Responce> {
+    override fun getOneRate(): Single<Responce> {
+        return api.getOneListRate()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    override fun getRepeatRate(): Observable<Responce> {
         return api.getListRate()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

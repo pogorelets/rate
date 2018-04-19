@@ -17,7 +17,8 @@ interface Contract {
     }
 
     interface Interactor{
-        fun getRate(): Observable<Responce>
+        fun getRepeatRate(): Observable<Responce>
+        fun getOneRate(): Single<Responce>
     }
 
 

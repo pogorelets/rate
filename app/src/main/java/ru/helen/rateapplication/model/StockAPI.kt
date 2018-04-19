@@ -10,4 +10,7 @@ import retrofit2.http.GET
 interface StockAPI {
     @GET("stocks.json")
     fun getListRate(): Observable<Responce>
+
+    @GET("stocks.json")
+    fun getOneListRate(): Single<Responce>
 }

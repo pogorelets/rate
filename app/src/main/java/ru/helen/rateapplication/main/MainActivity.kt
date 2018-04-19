@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), Contract.ViewRate {
         adapter = MainAdapter()
         rvRate.adapter = adapter
         presenter.getRates()
-
+        refresh.setOnClickListener { presenter.getOnceRate() }
 
     }
 
@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity(), Contract.ViewRate {
 
     override fun updateListRate(stoks: List<Stock>) {
         adapter.swapData(stoks)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.unsubscribe()
     }
 
     override fun onDestroy() {
